@@ -1,27 +1,35 @@
-extends Area2D
+extends CharacterBody2D
 
-signal dead
-
-@export var speed = 100
-var velocity = Vector2.ZERO
-var screensize = Vector2(1920,1080)
-
+@export var move_speed : float = 125
+@export var starting_direction : Vector2 = Vector2(0,1)
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	position = screensize / 2
-	$AnimatedSprite2D.animation = "idle_right"
 
+@onready var animation = $AnimationTree
+@onready var state_machine = animation.get("parameters/playback")
+
+func _ready():
+	update_animation_parameters(starting_direction)
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	velocity = Input.get_vector("move_left","move_right","move_up","move_down")
-	position += velocity * speed * delta
-	position.x = clamp(position.x,0,screensize.x)
-	position.y = clamp(position.y,0,screensize.y)
+	var input_direction = Vector2(
+		Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
+		Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
+	)
+	update_animation_parameters(input_direction)
 	
-	if velocity.length() > 0:
-		$AnimatedSprite2D.animation = "walk_right"
-	else: 
-		$AnimatedSprite2D.animation = "idle_right"
-	if velocity.x != 0:
-		$AnimatedSprite2D.flip_h= velocity.x < 0
+	
+	velocity = input_direction * move_speed
+	move_and_slide()
+	pick_new_state()
+func update_animation_parameters(move_input : Vector2):
+	if(move_input != Vector2.ZERO):
+		animation.set("parameters/Walk/blend_position", move_input)
+		animation.set("parameters/Idle/blend_position", move_input)
+		
+func pick_new_state():
+	if(velocity != Vector2.ZERO):
+		state_machine.travel("Walk")
+	else:
+		state_machine.travel("Idle")
