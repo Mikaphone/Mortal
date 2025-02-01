@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Items" load_steps=3 format=3 uid="uid://6o8ksquw6ydn"]
+
+[ext_resource type="Script" path="res://Assets/Items/Item.gd" id="1_lwl4d"]
+[ext_resource type="Texture2D" uid="uid://bag87gd2ycjp7" path="res://Assets/Sprites/Arrow-right.png" id="2_ge63b"]
+
+[resource]
+resource_name = "Apple"
+script = ExtResource("1_lwl4d")
+name = "Apple"
+description = "Test Apple"
+texture = ExtResource("2_ge63b")
+category = "Consumable"

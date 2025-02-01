@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Items" load_steps=3 format=3 uid="uid://cv1hes101fpoc"]
+
+[ext_resource type="Script" path="res://Assets/Items/Item.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://bwnmfhose5xii" path="res://Assets/Items/salad.png" id="2"]
+
+[resource]
+script = ExtResource("1")
+name = "Salad"
+description = "Crunchy water.... Yum! Heals 10 HP."
+texture = ExtResource("2")
+category = "Consumable"

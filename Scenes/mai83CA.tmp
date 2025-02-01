@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://hhws0f14enqx"]
+
+[ext_resource type="PackedScene" uid="uid://0td26jhlssy7" path="res://Scenes/testmap.tscn" id="1_1vcmi"]
+[ext_resource type="PackedScene" uid="uid://dq7a60bjr0ivu" path="res://Scenes/player.tscn" id="2_yn0cl"]
+[ext_resource type="PackedScene" uid="uid://jiixlgf1va3o" path="res://Scenes/menu.tscn" id="4_70wjg"]
+
+[node name="main" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Tester\'s Dungeon" parent="." instance=ExtResource("1_1vcmi")]
+
+[node name="player" parent="." instance=ExtResource("2_yn0cl")]
+position = Vector2(357, 262)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Pause" parent="CanvasLayer" instance=ExtResource("4_70wjg")]
