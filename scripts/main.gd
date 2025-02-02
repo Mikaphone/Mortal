@@ -1,7 +1,10 @@
 class_name main extends Node2D
-@export var testitem: Items
+
 @onready var pause_menu = $CanvasLayer/PauseMenu
+@onready var Player: player = %player
+
 var paused = false
+
 
 func _process(_delta):
 	

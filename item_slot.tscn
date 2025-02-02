@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://by87q2wsk5i65"]
+
+[ext_resource type="Texture2D" uid="uid://8bks3wxpj4f1" path="res://icon.svg" id="1_p3wl8"]
+[ext_resource type="Script" path="res://item_slot.gd" id="2_p334f"]
+
+[node name="ItemSlot" type="Button"]
+offset_right = 374.0
+offset_bottom = 63.0
+scale = Vector2(2.43878, 2.43878)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Placeholder Item"
+icon = ExtResource("1_p3wl8")
+expand_icon = true
+script = ExtResource("2_p334f")

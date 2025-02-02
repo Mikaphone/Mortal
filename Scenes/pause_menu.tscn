@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dostvgu1jv06y"]
+[gd_scene load_steps=4 format=3 uid="uid://dostvgu1jv06y"]
 
 [ext_resource type="Shader" path="res://Scenes/pause_menu.gdshader" id="1_d738w"]
 [ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_sv22y"]
-[ext_resource type="PackedScene" uid="uid://dsmd2dq6fjuks" path="res://Scenes/inventory_panel.tscn" id="3_hm3di"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_b8wj7"]
 shader = ExtResource("1_d738w")
@@ -70,7 +69,5 @@ text = "Settings"
 layout_mode = 2
 text = "Quit"
 
-[node name="Inventory" parent="." instance=ExtResource("3_hm3di")]
-layout_mode = 0
-
+[connection signal="pressed" from="MarginContainer/VBoxContainer/InventoryButton" to="." method="_on_inventory_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
