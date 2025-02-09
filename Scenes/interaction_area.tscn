@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dw21ojpfqoc0g"]
 
-[ext_resource type="Script" path="res://interaction_area.gd" id="1_0j6uf"]
+[ext_resource type="Script" path="res://scripts/interaction_area.gd" id="1_0j6uf"]
 [ext_resource type="Resource" uid="uid://d15lyee6axrxi" path="res://Assets/Items/Purple_Flower.tres" id="2_jbtt4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2qw0l"]

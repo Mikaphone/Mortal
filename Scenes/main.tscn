@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://hhws0f14enqx"]
+[gd_scene load_steps=9 format=3 uid="uid://hhws0f14enqx"]
 
 [ext_resource type="PackedScene" uid="uid://0td26jhlssy7" path="res://Scenes/testmap.tscn" id="1_1vcmi"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_uj14x"]
 [ext_resource type="PackedScene" uid="uid://dq7a60bjr0ivu" path="res://Scenes/player.tscn" id="2_yn0cl"]
 [ext_resource type="Script" path="res://Scenes/canvas_layer.gd" id="4_e1561"]
 [ext_resource type="PackedScene" uid="uid://dostvgu1jv06y" path="res://Scenes/pause_menu.tscn" id="5_5idsv"]
-[ext_resource type="PackedScene" uid="uid://rv5rhxe4oqh0" path="res://inventory_dialog.tscn" id="7_6010b"]
+[ext_resource type="PackedScene" uid="uid://rv5rhxe4oqh0" path="res://Scenes/inventory_dialog.tscn" id="7_6010b"]
 [ext_resource type="PackedScene" uid="uid://dw21ojpfqoc0g" path="res://Scenes/interaction_area.tscn" id="7_bihws"]
+[ext_resource type="PackedScene" uid="uid://r3xkgrl88g4y" path="res://Scenes/settings_dialog.tscn" id="8_efaht"]
 
 [node name="main" type="Node2D"]
 y_sort_enabled = true
@@ -43,5 +44,13 @@ offset_top = 71.0
 offset_right = -973.0
 offset_bottom = -494.0
 size_flags_horizontal = 4
+
+[node name="SettingsDialog" parent="CanvasLayer" instance=ExtResource("8_efaht")]
+unique_name_in_owner = true
+visible = false
+offset_left = 603.0
+offset_top = 68.0
+offset_right = -967.0
+offset_bottom = -497.0
 
 [connection signal="pressed" from="CanvasLayer/PauseButton" to="." method="_on_pause_button_pressed"]

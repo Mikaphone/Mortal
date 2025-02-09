@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://by87q2wsk5i65"]
 
 [ext_resource type="Texture2D" uid="uid://8bks3wxpj4f1" path="res://icon.svg" id="1_p3wl8"]
-[ext_resource type="Script" path="res://item_slot.gd" id="2_p334f"]
+[ext_resource type="Script" path="res://scripts/item_slot.gd" id="2_p334f"]
 
 [node name="ItemSlot" type="Button"]
 offset_right = 374.0
