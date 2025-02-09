@@ -1,4 +1,4 @@
-class_name stats
+class_name Stats
 extends Resource
 
 @export_category("General")

@@ -8,6 +8,7 @@ class_name player extends CharacterBody2D
 @onready var state_machine = animation.get("parameters/playback")
 
 var inventory:Inventory = Inventory.new()
+@export var statsheet: Stats
 
 
 func _ready():
