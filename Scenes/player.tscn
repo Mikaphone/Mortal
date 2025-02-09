@@ -1,7 +1,8 @@
-[gd_scene load_steps=28 format=3 uid="uid://dq7a60bjr0ivu"]
+[gd_scene load_steps=29 format=3 uid="uid://dq7a60bjr0ivu"]
 
 [ext_resource type="Texture2D" uid="uid://bofptoot8d777" path="res://Assets/Sprites/dungeonSprites_ v1.5/knight_.png" id="1_7n052"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_q6fks"]
+[ext_resource type="Resource" uid="uid://dvpv7p7qe3imn" path="res://CharacterStats/player.tres" id="2_axuk3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l2asd"]
 size = Vector2(12, 7)
@@ -242,6 +243,7 @@ position = Vector2(-1, -12)
 collision_layer = 2
 collision_mask = 1025
 script = ExtResource("1_q6fks")
+statsheet = ExtResource("2_axuk3")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
