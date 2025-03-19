@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://hhws0f14enqx"]
+[gd_scene load_steps=10 format=3 uid="uid://hhws0f14enqx"]
 
 [ext_resource type="PackedScene" uid="uid://0td26jhlssy7" path="res://Scenes/testmap.tscn" id="1_1vcmi"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_uj14x"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://rv5rhxe4oqh0" path="res://Scenes/inventory_dialog.tscn" id="7_6010b"]
 [ext_resource type="PackedScene" uid="uid://dw21ojpfqoc0g" path="res://Scenes/interaction_area.tscn" id="7_bihws"]
 [ext_resource type="PackedScene" uid="uid://r3xkgrl88g4y" path="res://Scenes/settings_dialog.tscn" id="8_efaht"]
+[ext_resource type="PackedScene" uid="uid://bw5cgnslu3bd8" path="res://Scenes/status_dialog.tscn" id="9_e4sf7"]
 
 [node name="main" type="Node2D"]
 y_sort_enabled = true
@@ -51,6 +52,14 @@ visible = false
 offset_left = 603.0
 offset_top = 68.0
 offset_right = -967.0
+offset_bottom = -497.0
+
+[node name="StatusDialog" parent="CanvasLayer" instance=ExtResource("9_e4sf7")]
+unique_name_in_owner = true
+visible = false
+offset_left = 600.0
+offset_top = 68.0
+offset_right = -970.0
 offset_bottom = -497.0
 
 [connection signal="pressed" from="CanvasLayer/PauseButton" to="." method="_on_pause_button_pressed"]

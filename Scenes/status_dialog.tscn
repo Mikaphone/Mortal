@@ -1,0 +1,92 @@
+[gd_scene load_steps=9 format=3 uid="uid://bw5cgnslu3bd8"]
+
+[ext_resource type="Script" path="res://Scenes/status_dialog.gd" id="1_2gk0w"]
+[ext_resource type="Texture2D" uid="uid://b753reba7ap05" path="res://Assets/Sprites/Arrow.png" id="2_7m6c8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fsee7"]
+font_size = 22
+
+[sub_resource type="LabelSettings" id="LabelSettings_wco3c"]
+font_size = 23
+
+[sub_resource type="LabelSettings" id="LabelSettings_2tdaa"]
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_wmh5m"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7u2qp"]
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_lo01r"]
+
+[node name="StatusDialog" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1570.0
+offset_bottom = -565.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.79427, 1.79427)
+script = ExtResource("1_2gk0w")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 2
+color = Color(0.197937, 0.197937, 0.197937, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="CloseButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+icon = ExtResource("2_7m6c8")
+
+[node name="TitleLabel" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Status"
+label_settings = SubResource("LabelSettings_fsee7")
+horizontal_alignment = 1
+
+[node name="LevelHeader" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Level"
+label_settings = SubResource("LabelSettings_wco3c")
+horizontal_alignment = 1
+
+[node name="LevelValue" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "1"
+horizontal_alignment = 1
+
+[node name="HealthHeader" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Health"
+label_settings = SubResource("LabelSettings_2tdaa")
+horizontal_alignment = 1
+
+[node name="HealthValues" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0/0"
+label_settings = SubResource("LabelSettings_wmh5m")
+horizontal_alignment = 1
+
+[node name="APHeader" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Action Points"
+label_settings = SubResource("LabelSettings_7u2qp")
+horizontal_alignment = 1
+
+[node name="APValues" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0/0"
+label_settings = SubResource("LabelSettings_lo01r")
+horizontal_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]

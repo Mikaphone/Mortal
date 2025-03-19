@@ -15,7 +15,7 @@ extends Resource
 @export var startingintel : int
 @export var startingwis : int
 @export var startingchar : int
-
+@export var texture : Texture
 
 var strength : int
 var dex : int

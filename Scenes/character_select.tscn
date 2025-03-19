@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://c2y333wvpbh8q"]
+
+[node name="charBar" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1144.0
+offset_bottom = -1014.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Select" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Character Name"
+
+[node name="HpLabel" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "HP 0/0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ApLabel" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "AP 0/0"
+horizontal_alignment = 1
+vertical_alignment = 1

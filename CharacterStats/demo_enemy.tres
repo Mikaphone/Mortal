@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Stats" load_steps=2 format=3 uid="uid://ci8egrpiwce5y"]
+
+[ext_resource type="Script" path="res://scripts/stats.gd" id="1_dmuii"]
+
+[resource]
+script = ExtResource("1_dmuii")
+charactername = "demoenemy"
+level = 3
+mhp = 15
+hp = 15
+m_ap = 10
+ap = 10
+startingstrength = 4
+startingdex = 3
+startingcon = 2
+startingintel = 1
+startingwis = 1
+startingchar = 1

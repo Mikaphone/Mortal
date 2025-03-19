@@ -1,12 +1,13 @@
-[gd_resource type="Resource" script_class="stats" load_steps=2 format=3 uid="uid://dvpv7p7qe3imn"]
+[gd_resource type="Resource" script_class="Stats" load_steps=3 format=3 uid="uid://dvpv7p7qe3imn"]
 
 [ext_resource type="Script" path="res://scripts/stats.gd" id="1_r187y"]
+[ext_resource type="Texture2D" uid="uid://c8c1uro0s0i6y" path="res://Assets/Sprites/dungeonSprites_ v1.5/knightidle_.png" id="2_0k1dk"]
 
 [resource]
 script = ExtResource("1_r187y")
 charactername = "player"
 level = 1
-mhp = 15
+mhp = 25
 hp = 15
 m_ap = 20
 ap = 20
@@ -16,3 +17,4 @@ startingcon = 5
 startingintel = 1
 startingwis = 1
 startingchar = 3
+texture = ExtResource("2_0k1dk")

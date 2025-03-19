@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://xk1tfccx1h6r"]
+
+[ext_resource type="Texture2D" uid="uid://c4bce8ow2yr0a" path="res://Assets/Sprites/white_placeholder.png" id="1_5de1e"]
+[ext_resource type="Script" path="res://Scenes/character_container.gd" id="1_t7m07"]
+
+[node name="CharacterContainer" type="TextureButton"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1405.0
+offset_top = 349.0
+offset_right = -499.0
+offset_bottom = -715.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(6.32315, 6.32315)
+texture_normal = ExtResource("1_5de1e")
+script = ExtResource("1_t7m07")

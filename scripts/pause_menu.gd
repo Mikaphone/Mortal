@@ -4,6 +4,7 @@ extends Control
 @onready var Player: player = %player
 @onready var inventory_dialouge: InventoryDialog = %InventoryDialouge
 @onready var settings_dialog: SettingsDialog = %SettingsDialog
+@onready var Status_dialog: status_dialog = %StatusDialog
 
 
 
@@ -24,3 +25,7 @@ func _on_exit_button_pressed():
 
 func _on_settings_button_pressed() -> void:
 	settings_dialog.show()
+
+
+func _on_status_button_pressed() -> void:
+	Status_dialog.show()

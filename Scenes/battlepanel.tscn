@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://b36kta21y72gf"]
+
+[ext_resource type="Texture2D" uid="uid://dkk14r6w47ime" path="res://Assets/Sprites/ninepatch-art.png" id="1_rdv38"]
+
+[node name="NinePatchRect" type="NinePatchRect"]
+size_flags_horizontal = 3
+texture = ExtResource("1_rdv38")
+region_rect = Rect2(0, 0, 16, 16)
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
