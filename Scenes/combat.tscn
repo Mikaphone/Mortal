@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ybbwpi03l5i8"]
+[gd_scene load_steps=15 format=3 uid="uid://ybbwpi03l5i8"]
 
 [ext_resource type="PackedScene" uid="uid://b36kta21y72gf" path="res://Scenes/battlepanel.tscn" id="1_0fp4l"]
 [ext_resource type="Theme" uid="uid://cli2vaqroqe7v" path="res://themes/default_theme.tres" id="1_8aaw2"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://rv5rhxe4oqh0" path="res://Scenes/inventory_dialog.tscn" id="11_38tlr"]
 [ext_resource type="AudioStream" uid="uid://baqwhteq4fegx" path="res://Assets/audio/sword-slash-with-metal-shield-impact-185433.mp3" id="12_x61h3"]
 [ext_resource type="AudioStream" uid="uid://by5242m7kkbin" path="res://Assets/audio/epic-game-music-by-kris-klavenes-3-mins-49771.mp3" id="13_mqdss"]
+[ext_resource type="AudioStream" uid="uid://c2l1s74mg8liv" path="res://Assets/audio/explosion.wav" id="14_hwhgl"]
 
 [node name="Battle" type="Control"]
 layout_mode = 3
@@ -215,6 +216,11 @@ bus = &"Sound Effects"
 stream = ExtResource("13_mqdss")
 volume_db = -2.0
 bus = &"Music"
+
+[node name="flee" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_hwhgl")
+volume_db = -3.0
+bus = &"Sound Effects"
 
 [connection signal="button_focused" from="Options/Options Menu" to="." method="_on_options_menu_button_focused"]
 [connection signal="button_pressed" from="Options/Options Menu" to="." method="_on_options_menu_button_pressed"]

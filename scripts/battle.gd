@@ -133,14 +133,15 @@ func _on_flee_pressed() -> void:
 	var fleeval : int  = randi_range(1, 10)
 	if fleeval >= 5:
 		context_label.set("text", "You fled!")
+		$flee.play()
 		await get_tree().create_timer(3.0).timeout
-		end_combat_win()
+		get_tree().quit()
 	if fleeval < 5:
 		context_label.set("text", "You were unable to flee!")
 		await get_tree().create_timer(3.0).timeout
-	playerturn = false
-	enemy_slot_1.character.blocking = false
-	emit_signal("advance")
+		playerturn = false
+		enemy_slot_1.character.blocking = false
+		emit_signal("advance")
 
 func _on_items_pressed() -> void:
 	options.hide()
