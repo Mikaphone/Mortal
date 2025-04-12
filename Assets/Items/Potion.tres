@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Items" load_steps=3 format=3 uid="uid://b0xtbwvnrk5vu"]
+
+[ext_resource type="Script" path="res://Assets/Items/Item.gd" id="1_pb6h5"]
+[ext_resource type="Texture2D" uid="uid://cwqd2t8th77yc" path="res://Assets/Items/potion.png" id="2_bkf3c"]
+
+[resource]
+script = ExtResource("1_pb6h5")
+name = "Reusable Potion"
+description = "A healing item!"
+texture = ExtResource("2_bkf3c")
+category = "Consumable"

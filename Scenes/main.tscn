@@ -1,14 +1,17 @@
-[gd_scene load_steps=10 format=3 uid="uid://hhws0f14enqx"]
+[gd_scene load_steps=13 format=3 uid="uid://hhws0f14enqx"]
 
 [ext_resource type="PackedScene" uid="uid://0td26jhlssy7" path="res://Scenes/testmap.tscn" id="1_1vcmi"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_uj14x"]
 [ext_resource type="PackedScene" uid="uid://dq7a60bjr0ivu" path="res://Scenes/player.tscn" id="2_yn0cl"]
-[ext_resource type="Script" path="res://Scenes/canvas_layer.gd" id="4_e1561"]
+[ext_resource type="Script" path="res://scripts/canvas_layer.gd" id="4_e1561"]
 [ext_resource type="PackedScene" uid="uid://dostvgu1jv06y" path="res://Scenes/pause_menu.tscn" id="5_5idsv"]
+[ext_resource type="PackedScene" uid="uid://qij3dj568wih" path="res://Scenes/saving_scroll.tscn" id="5_te2v5"]
+[ext_resource type="PackedScene" uid="uid://w3jvdb8cc2sm" path="res://Scenes/skeleton_overworld.tscn" id="6_axaj6"]
 [ext_resource type="PackedScene" uid="uid://rv5rhxe4oqh0" path="res://Scenes/inventory_dialog.tscn" id="7_6010b"]
 [ext_resource type="PackedScene" uid="uid://dw21ojpfqoc0g" path="res://Scenes/interaction_area.tscn" id="7_bihws"]
 [ext_resource type="PackedScene" uid="uid://r3xkgrl88g4y" path="res://Scenes/settings_dialog.tscn" id="8_efaht"]
 [ext_resource type="PackedScene" uid="uid://bw5cgnslu3bd8" path="res://Scenes/status_dialog.tscn" id="9_e4sf7"]
+[ext_resource type="AudioStream" uid="uid://bdha0w2lg1pvu" path="res://Assets/audio/dungeon-air-6983.mp3" id="12_yplv3"]
 
 [node name="main" type="Node2D"]
 y_sort_enabled = true
@@ -16,13 +19,20 @@ script = ExtResource("1_uj14x")
 
 [node name="Tester\'s Dungeon" parent="." instance=ExtResource("1_1vcmi")]
 
-[node name="InteractionArea" parent="." instance=ExtResource("7_bihws")]
-position = Vector2(276, 610)
-
 [node name="player" parent="." instance=ExtResource("2_yn0cl")]
 unique_name_in_owner = true
 position = Vector2(357, 262)
 collision_mask = 1029
+
+[node name="InteractionArea" parent="." instance=ExtResource("7_bihws")]
+position = Vector2(661, 606)
+
+[node name="SavingScroll" parent="." instance=ExtResource("5_te2v5")]
+position = Vector2(1255, 875)
+
+[node name="Node2D" parent="." instance=ExtResource("6_axaj6")]
+position = Vector2(93, 977)
+scale = Vector2(2.68571, 2.68571)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("4_e1561")
@@ -62,4 +72,11 @@ offset_top = 68.0
 offset_right = -970.0
 offset_bottom = -497.0
 
+[node name="ambience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_yplv3")
+bus = &"Music"
+
+[connection signal="save" from="SavingScroll" to="." method="_on_saving_scroll_save"]
+[connection signal="load" from="CanvasLayer/PauseMenu" to="." method="_on_pause_menu_load"]
 [connection signal="pressed" from="CanvasLayer/PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="finished" from="ambience" to="." method="_on_ambience_finished"]

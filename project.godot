@@ -11,24 +11,27 @@ config_version=5
 [application]
 
 config/name="Mortal"
-run/main_scene="res://Scenes/main.tscn"
+run/main_scene="res://Scenes/title_screen.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Global="*res://scripts/global.gd"
+SaveLoad="*res://scripts/save_load.gd"
+InteractionManager="*res://Scenes/interaction_manager.tscn"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/mode=3
+window/size/mode=2
 window/stretch/mode="viewport"
 
 [global_group]
 
 playergroup=""
+ground_item="items found on the ground"
 
 [input]
 

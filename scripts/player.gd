@@ -6,8 +6,9 @@ class_name player extends CharacterBody2D
 
 @onready var animation = $AnimationTree
 @onready var state_machine = animation.get("parameters/playback")
+var can_move = true
 
-var inventory:Inventory = Inventory.new()
+
 @export var statsheet: Stats
 
 
@@ -23,8 +24,11 @@ func _process(_delta):
 	)
 	update_animation_parameters(input_direction)
 	
-	
-	velocity = input_direction * move_speed
+	if can_move == true:
+		velocity = input_direction * move_speed
+	if can_move == false:
+		velocity.x = 0
+		velocity.y = 0
 	move_and_slide()
 	pick_new_state()
 func update_animation_parameters(move_input : Vector2):

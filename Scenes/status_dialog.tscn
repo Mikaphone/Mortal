@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://bw5cgnslu3bd8"]
 
-[ext_resource type="Script" path="res://Scenes/status_dialog.gd" id="1_2gk0w"]
+[ext_resource type="Script" path="res://scripts/status_dialog.gd" id="1_2gk0w"]
 [ext_resource type="Texture2D" uid="uid://b753reba7ap05" path="res://Assets/Sprites/Arrow.png" id="2_7m6c8"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fsee7"]

@@ -1,0 +1,48 @@
+[gd_scene load_steps=9 format=3 uid="uid://6y53hnbts5c1"]
+
+[ext_resource type="Texture2D" uid="uid://dik4i7iunecle" path="res://Assets/Attack Sprites/SP301_nyknck/SP301_nyknck/SP301_01.png" id="1_wmjep"]
+[ext_resource type="Script" path="res://scripts/attackanimation.gd" id="1_xgj4d"]
+[ext_resource type="Texture2D" uid="uid://bfk707p28l0yg" path="res://Assets/Attack Sprites/SP301_nyknck/SP301_nyknck/SP301_02.png" id="2_88w7v"]
+[ext_resource type="Texture2D" uid="uid://b57fobw8nknu2" path="res://Assets/Attack Sprites/SP301_nyknck/SP301_nyknck/SP301_03.png" id="3_ihekk"]
+[ext_resource type="Texture2D" uid="uid://c78gc5ja08gvs" path="res://Assets/Attack Sprites/SP301_nyknck/SP301_nyknck/SP301_04.png" id="4_17wly"]
+[ext_resource type="Texture2D" uid="uid://byv57bwi75jw5" path="res://Assets/Attack Sprites/SP301_nyknck/SP301_nyknck/SP301_05.png" id="5_prgiv"]
+[ext_resource type="AudioStream" uid="uid://cows1yu6biwe5" path="res://Assets/audio/sword-sound-260274.mp3" id="7_je6y0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cevmf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_wmjep")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_88w7v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ihekk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_17wly")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_prgiv")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 12.0
+}]
+
+[node name="attackanimation" type="Node2D"]
+script = ExtResource("1_xgj4d")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = 0.47521
+scale = Vector2(3.70407, 3.70407)
+sprite_frames = SubResource("SpriteFrames_cevmf")
+animation = &"attack"
+autoplay = "attack"
+frame_progress = 0.935945
+
+[node name="hitsound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_je6y0")
+volume_db = 1.0
+bus = &"Sound Effects"

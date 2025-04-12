@@ -8,7 +8,6 @@ extends Resource
 var item_amount = 1
 
 
-
 #Add Later
 #sell_price
 #buy_price

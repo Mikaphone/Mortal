@@ -24,6 +24,8 @@ func _on_button_focused(button: BaseButton) -> void:
 
 func _on_button_pressed(button: BaseButton) -> void:
 	emit_signal("button_pressed",button)
+	
+	
 
 
 #func connect_to_buttons(target: Object, _name: String = name) -> void: 

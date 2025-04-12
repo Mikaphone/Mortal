@@ -1,0 +1,86 @@
+[gd_scene load_steps=9 format=3 uid="uid://w3jvdb8cc2sm"]
+
+[ext_resource type="Script" path="res://scripts/skeleton_overworld.gd" id="1_16s0i"]
+[ext_resource type="Texture2D" uid="uid://5wniuyyov3oc" path="res://Assets/Sprites/dungeonSprites_ v1.5/skeleton_.png" id="1_wulvl"]
+[ext_resource type="Texture2D" uid="uid://bojf2p0tnr272" path="res://Assets/Sprites/exclamation-point.png" id="3_wtes3"]
+[ext_resource type="AudioStream" uid="uid://bd5ofdwrg87ww" path="res://Assets/audio/powerUp.wav" id="4_0xq02"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ptxt4"]
+radius = 42.07
+
+[sub_resource type="Animation" id="Animation_jlbev"]
+resource_name = "Idle"
+length = 0.55
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 10, 10, 9]
+}
+
+[sub_resource type="Animation" id="Animation_lgceb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cw0hl"]
+_data = {
+"Idle": SubResource("Animation_jlbev"),
+"RESET": SubResource("Animation_lgceb")
+}
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(943, 536)
+scale = Vector2(3.61803, 3.61803)
+script = ExtResource("1_16s0i")
+
+[node name="CharacterBody2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CircleShape2D_ptxt4")
+
+[node name="AnimatedSprite2D" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("1_wulvl")
+hframes = 8
+vframes = 7
+frame = 8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D"]
+libraries = {
+"": SubResource("AnimationLibrary_cw0hl")
+}
+autoplay = "Idle"
+
+[node name="TextureRect" type="TextureRect" parent="CharacterBody2D"]
+visible = false
+offset_left = -5.25147
+offset_top = -15.478
+offset_right = 34.7485
+offset_bottom = 24.522
+scale = Vector2(0.249145, 0.249145)
+texture = ExtResource("3_wtes3")
+
+[node name="found" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_0xq02")
+bus = &"Sound Effects"
+
+[connection signal="body_entered" from="CharacterBody2D" to="." method="_on_character_body_2d_body_entered"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://xk1tfccx1h6r"]
+[gd_scene load_steps=4 format=3 uid="uid://xk1tfccx1h6r"]
 
 [ext_resource type="Texture2D" uid="uid://c4bce8ow2yr0a" path="res://Assets/Sprites/white_placeholder.png" id="1_5de1e"]
-[ext_resource type="Script" path="res://Scenes/character_container.gd" id="1_t7m07"]
+[ext_resource type="Script" path="res://scripts/character_container.gd" id="1_t7m07"]
+[ext_resource type="Texture2D" uid="uid://dqeb1klygx4cj" path="res://Assets/Sprites/Quick Shield.png" id="3_4doec"]
 
 [node name="CharacterContainer" type="TextureButton"]
 anchors_preset = 15
@@ -16,3 +17,13 @@ grow_vertical = 2
 scale = Vector2(6.32315, 6.32315)
 texture_normal = ExtResource("1_5de1e")
 script = ExtResource("1_t7m07")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0.745098)
+layout_mode = 0
+offset_left = -1.10704
+offset_right = 38.893
+offset_bottom = 40.0
+scale = Vector2(0.447964, 0.447964)
+texture = ExtResource("3_4doec")

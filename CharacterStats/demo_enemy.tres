@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="Stats" load_steps=2 format=3 uid="uid://ci8egrpiwce5y"]
+[gd_resource type="Resource" script_class="Stats" load_steps=3 format=3 uid="uid://ci8egrpiwce5y"]
 
 [ext_resource type="Script" path="res://scripts/stats.gd" id="1_dmuii"]
+[ext_resource type="Texture2D" uid="uid://deo3jgtxvqpjo" path="res://Assets/Sprites/dungeonSprites_ v1.5/skeleton_idle.png" id="2_hfctj"]
 
 [resource]
 script = ExtResource("1_dmuii")
@@ -16,3 +17,5 @@ startingcon = 2
 startingintel = 1
 startingwis = 1
 startingchar = 1
+texture = ExtResource("2_hfctj")
+blocking = false

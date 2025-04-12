@@ -1,0 +1,218 @@
+[gd_scene load_steps=12 format=3 uid="uid://ybbwpi03l5i8"]
+
+[ext_resource type="PackedScene" uid="uid://b36kta21y72gf" path="res://Scenes/battlepanel.tscn" id="1_0fp4l"]
+[ext_resource type="Theme" uid="uid://cli2vaqroqe7v" path="res://themes/default_theme.tres" id="1_8aaw2"]
+[ext_resource type="Script" path="res://scripts/battle.gd" id="2_l1my0"]
+[ext_resource type="Texture2D" uid="uid://ctv1p26abj22t" path="res://Assets/Sprites/dungeonSprites_ v1.5/Screenshot 2025-03-21 150309.png" id="3_p4pig"]
+[ext_resource type="PackedScene" uid="uid://xk1tfccx1h6r" path="res://Scenes/character_container.tscn" id="3_tss0t"]
+[ext_resource type="Script" path="res://scripts/options_menu.gd" id="4_0qbev"]
+[ext_resource type="PackedScene" uid="uid://c2y333wvpbh8q" path="res://Scenes/character_select.tscn" id="4_jes3h"]
+[ext_resource type="PackedScene" uid="uid://vgv1osdt584y" path="res://Scenes/enemy_selection.tscn" id="4_vd2ik"]
+[ext_resource type="Resource" uid="uid://dvpv7p7qe3imn" path="res://CharacterStats/player.tres" id="8_2w842"]
+[ext_resource type="Resource" uid="uid://ci8egrpiwce5y" path="res://CharacterStats/demo_enemy.tres" id="9_p3pv0"]
+[ext_resource type="PackedScene" uid="uid://rv5rhxe4oqh0" path="res://Scenes/inventory_dialog.tscn" id="11_38tlr"]
+
+[node name="Battle" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_8aaw2")
+script = ExtResource("2_l1my0")
+metadata/_edit_lock_ = true
+
+[node name="BackgroundTemp" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_p4pig")
+metadata/_edit_lock_ = true
+
+[node name="Top Bar" parent="." instance=ExtResource("1_0fp4l")]
+layout_mode = 2
+offset_left = 99.0
+offset_top = 112.0
+offset_right = 1823.0
+offset_bottom = 205.0
+
+[node name="ContextLabel" type="Label" parent="Top Bar"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -612.0
+offset_top = -20.5
+offset_right = 1144.0
+offset_bottom = 40.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.669817, 0.669817)
+text = "This is all placeholder text until it is needed!"
+horizontal_alignment = 1
+
+[node name="Bottom" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(1240, 348)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -617.0
+offset_top = -358.0
+offset_right = 906.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = -9
+alignment = 1
+
+[node name="Left" parent="Bottom" instance=ExtResource("1_0fp4l")]
+layout_mode = 2
+metadata/_edit_lock_ = true
+
+[node name="Enemy Select" type="VBoxContainer" parent="Bottom/Left"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 32.0
+offset_top = 9.0
+offset_right = 504.0
+offset_bottom = 342.0
+metadata/_edit_lock_ = true
+
+[node name="enBar" parent="Bottom/Left/Enemy Select" instance=ExtResource("4_vd2ik")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Right" parent="Bottom" instance=ExtResource("1_0fp4l")]
+layout_mode = 2
+size_flags_stretch_ratio = 2.0
+metadata/_edit_lock_ = true
+
+[node name="Ally Select" type="VBoxContainer" parent="Bottom/Right"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 9.0
+offset_top = 7.0
+offset_right = 1012.0
+offset_bottom = 339.0
+metadata/_edit_lock_ = true
+
+[node name="charBar" parent="Bottom/Right/Ally Select" instance=ExtResource("4_jes3h")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Select" parent="Bottom/Right/Ally Select/charBar" index="0"]
+text = "Player"
+
+[node name="Options" parent="." instance=ExtResource("1_0fp4l")]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = 29.0
+offset_top = 723.0
+offset_right = 324.0
+offset_bottom = 1071.0
+
+[node name="Options Menu" type="VBoxContainer" parent="Options"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 287.0
+offset_bottom = 340.0
+script = ExtResource("4_0qbev")
+metadata/_edit_lock_ = true
+
+[node name="Fight" type="Button" parent="Options/Options Menu"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Flee")
+focus_neighbor_bottom = NodePath("../Block")
+focus_next = NodePath("../Block")
+focus_previous = NodePath("../Flee")
+text = "Fight"
+
+[node name="Block" type="Button" parent="Options/Options Menu"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Fight")
+focus_neighbor_bottom = NodePath("../Items")
+focus_next = NodePath("../Items")
+focus_previous = NodePath("../Fight")
+text = "Block"
+
+[node name="Items" type="Button" parent="Options/Options Menu"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Block")
+focus_neighbor_bottom = NodePath("../Flee")
+focus_next = NodePath("../Flee")
+focus_previous = NodePath("../Block")
+text = "Items"
+
+[node name="Flee" type="Button" parent="Options/Options Menu"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Items")
+focus_neighbor_bottom = NodePath("../Fight")
+focus_next = NodePath("../Fight")
+focus_previous = NodePath("../Items")
+text = "Flee"
+
+[node name="Players" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AllySlot1" parent="Players" instance=ExtResource("3_tss0t")]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 1568.0
+offset_top = 538.0
+offset_right = 1544.0
+offset_bottom = 514.0
+scale = Vector2(8, 8)
+disabled = true
+character = ExtResource("8_2w842")
+
+[node name="Enemies" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="EnemySlot1" parent="Enemies" instance=ExtResource("3_tss0t")]
+unique_name_in_owner = true
+self_modulate = Color(1, 0.25098, 0.25098, 1)
+layout_mode = 1
+offset_left = 363.0
+offset_top = 533.0
+offset_right = 339.0
+offset_bottom = 509.0
+scale = Vector2(8, 8)
+disabled = true
+character = ExtResource("9_p3pv0")
+
+[node name="InventoryDialouge" parent="." instance=ExtResource("11_38tlr")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+offset_left = 660.0
+offset_top = 80.0
+offset_right = -910.0
+offset_bottom = -485.0
+
+[connection signal="button_focused" from="Options/Options Menu" to="." method="_on_options_menu_button_focused"]
+[connection signal="button_pressed" from="Options/Options Menu" to="." method="_on_options_menu_button_pressed"]
+[connection signal="pressed" from="Options/Options Menu/Fight" to="." method="_on_fight_pressed"]
+[connection signal="pressed" from="Options/Options Menu/Block" to="." method="_on_block_pressed"]
+[connection signal="pressed" from="Options/Options Menu/Items" to="." method="_on_items_pressed"]
+[connection signal="pressed" from="Options/Options Menu/Flee" to="." method="_on_flee_pressed"]
+[connection signal="pressed" from="InventoryDialouge/VBoxContainer/HBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="InventoryDialouge/VBoxContainer/HBoxContainer2/ItemList/ItemSlot" to="." method="_on_item_slot_pressed"]
+
+[editable path="Bottom/Right/Ally Select/charBar"]
+[editable path="InventoryDialouge"]

@@ -1,6 +1,7 @@
 class_name loc_code extends Node2D
 
 @export var loc_name : String = "Test Dungeon"
+@onready var player: player = %player
 
 signal loc_change
 

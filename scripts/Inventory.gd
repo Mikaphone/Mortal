@@ -1,4 +1,5 @@
 class_name Inventory
+extends Resource
 
 var _content:Array[Items] = []
 

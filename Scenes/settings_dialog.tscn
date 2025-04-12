@@ -68,13 +68,35 @@ popup/item_3/id = 3
 
 [node name="AudioLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "Audio Volume:"
+text = "Master Volume:"
 label_settings = SubResource("LabelSettings_2re4k")
 horizontal_alignment = 1
 
 [node name="VolSlider" parent="VBoxContainer" instance=ExtResource("3_vpvl7")]
 unique_name_in_owner = true
 layout_mode = 2
+
+[node name="AudioLabel2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Sound Effects Volume:"
+label_settings = SubResource("LabelSettings_2re4k")
+horizontal_alignment = 1
+
+[node name="VolSlider2" parent="VBoxContainer" instance=ExtResource("3_vpvl7")]
+unique_name_in_owner = true
+layout_mode = 2
+bus_name = "Sound Effects"
+
+[node name="AudioLabel3" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Music Volume:"
+label_settings = SubResource("LabelSettings_2re4k")
+horizontal_alignment = 1
+
+[node name="VolSlider3" parent="VBoxContainer" instance=ExtResource("3_vpvl7")]
+unique_name_in_owner = true
+layout_mode = 2
+bus_name = "Music"
 
 [node name="LanguageLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2

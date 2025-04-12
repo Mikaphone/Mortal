@@ -5,7 +5,7 @@ extends CanvasLayer
 
 func _unhandled_input(event):
 	if event.is_action_released("Inventory"):
-		inventory_dialouge.open(Player.inventory)
+		inventory_dialouge.open(Global.inventory)
 
 
 #func _ready():

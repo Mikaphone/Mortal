@@ -16,6 +16,7 @@ extends Resource
 @export var startingwis : int
 @export var startingchar : int
 @export var texture : Texture
+@export var blocking : bool = false
 
 var strength : int
 var dex : int
