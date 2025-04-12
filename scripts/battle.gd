@@ -98,6 +98,7 @@ func end_combat_win():
 
 
 func _on_fight_pressed() -> void:
+	options.hide()
 	var attackval : int = randi_range(1, 7)
 	if enemy_slot_1.character.blocking == true:
 		attackval = attackval / 2
@@ -109,7 +110,6 @@ func _on_fight_pressed() -> void:
 	context_label.set("text","Enemy took " + str(attackval) + " damage!")
 	playanimation(Vector2(1000,580))
 	await get_tree().create_timer(3.0).timeout
-	options.hide()
 	playerturn = false
 	emit_signal("advance")
 

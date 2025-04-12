@@ -37,22 +37,26 @@ func _on_saving_scroll_save() -> void:
 
 func save_game():
 	var saved_game : SavedGame = SavedGame.new()
-	
+	var saved_inv : Inventory = Inventory.new()
 	saved_game.saved_position = Player.global_position
 	saved_game.health = Player.statsheet.hp
 	saved_game.action_points = Player.statsheet.ap
+	saved_inv = Global.inventory
 	
 	
 	for item in get_tree().get_nodes_in_group("ground_item"):
 		saved_game.ground_item_positions.append(item.global_position)
 	
 	ResourceSaver.save(saved_game,"res://savegame.tres")
+	ResourceSaver.save(saved_inv, "res://savedinv.tres")
 	
 func load_game():
 	var saved_game : SavedGame = load("res://savegame.tres")
+	var saved_inv : Inventory = load("res://savedinv.tres")
 	Player.global_position = saved_game.saved_position
 	Player.statsheet.hp = saved_game.health
 	Player.statsheet.ap = saved_game.action_points
+	Global.inventory = saved_inv
 	
 	
 	for item in get_tree().get_nodes_in_group("ground_item"):
@@ -60,7 +64,7 @@ func load_game():
 		item.queue_free()
 	for position in saved_game.ground_item_positions:
 		preload("res://Scenes/interaction_area.tscn")
-
+	
 
 func _on_pause_menu_load() -> void:
 	load_game()
