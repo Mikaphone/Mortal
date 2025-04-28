@@ -134,11 +134,11 @@ func _on_flee_pressed() -> void:
 	if fleeval >= 5:
 		context_label.set("text", "You fled!")
 		$flee.play()
-		await get_tree().create_timer(3.0).timeout
+		await get_tree().create_timer(2.0).timeout
 		get_tree().quit()
 	if fleeval < 5:
 		context_label.set("text", "You were unable to flee!")
-		await get_tree().create_timer(3.0).timeout
+		await get_tree().create_timer(2.0).timeout
 		playerturn = false
 		enemy_slot_1.character.blocking = false
 		emit_signal("advance")
@@ -157,10 +157,12 @@ func _on_close_button_pressed() -> void:
 
 func _on_item_slot_pressed() -> void:
 	ally_slot_1.character.heal(5)
+	$heal.play()
 	playerturn = false
+	inventory_dialouge.hide()
 	enemy_slot_1.character.blocking = false
 	context_label.set("text", "You healed for 5 HP!")
-	await get_tree().create_timer(3.0).timeout
+	await get_tree().create_timer(2.0).timeout
 	emit_signal("advance")
 
 func playanimation(pos):

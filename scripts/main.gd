@@ -47,12 +47,12 @@ func save_game():
 	for item in get_tree().get_nodes_in_group("ground_item"):
 		saved_game.ground_item_positions.append(item.global_position)
 	
-	ResourceSaver.save(saved_game,"res://savegame.tres")
-	ResourceSaver.save(saved_inv, "res://savedinv.tres")
+	ResourceSaver.save(saved_game,"user://savegame.tres")
+	ResourceSaver.save(saved_inv, "user://savedinv.tres")
 	
 func load_game():
-	var saved_game : SavedGame = load("res://savegame.tres")
-	var saved_inv : Inventory = load("res://savedinv.tres")
+	var saved_game : SavedGame = load("user://savegame.tres")
+	var saved_inv : Inventory = load("user://savedinv.tres")
 	Player.global_position = saved_game.saved_position
 	Player.statsheet.hp = saved_game.health
 	Player.statsheet.ap = saved_game.action_points
